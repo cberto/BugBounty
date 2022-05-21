@@ -5,8 +5,8 @@ import { Route, Routes } from "react-router";
 import Main from "./components/Main";
 import About from "./components/AboutPage";
 import BlogPage from "./components/BlogPage";
-import WorkPages from "./components/WorkPages";
-import MySkillsPage from "./components/MySkillsPage";
+import Pages from "./components/Pages";
+import Photos from "./components/Photos";
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/work" element={<WorkPages />} />
-        <Route path="/skill" element={<MySkillsPage />} />
+        <Route path="/pages" element={<Pages />} />
+        <Route path="/photos" element={<Photos />} />
 
         
       </Routes>
