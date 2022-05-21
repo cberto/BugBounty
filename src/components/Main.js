@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
 import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
+import Intro from '../components/Intro'
 import { NavLink } from 'react-router-dom'
 import { BugBounty } from './AllSvgs'
 import  { keyframes } from 'styled-components'
@@ -87,11 +88,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 transition: all 1s ease;
-img{
-    border-radius: 200px 200px 200px 200px;
-    max-width: 100%;
-    max-height: 100%;
-}
+
 &>:last-child{
     display: ${props => props.click ? 'none' :'inline-block'  };
     padding-top: 1rem;
@@ -100,19 +97,37 @@ img{
 span{
     font-weight: bold;
     font-size: 1.5rem;
-
+    
 }
 `
+
+const DarkDiv = styled.div`
+position: absolute;
+top: 0;
+background-color: #000;
+bottom: 0;
+right: 50%;
+width: ${props => props.click ? '50%' : '0%'};
+height: ${props => props.click ? '100%' : '0%'};
+z-index:1;
+transition: height 0.5s ease, width 1s ease 0.5s;
+`
+// #000;
+
 export const Main = () => {
+    const [click, setClick] = useState(false);
+const handleClick = () => setClick(!click);
+
   return (
     <MainContainer>
+         <DarkDiv   click={click}/>
          <Container>
         <PowerButton />
-        <LogoComponent />
-        <SocialIcons />
+        <LogoComponent theme={click ? 'dark' :'light'} />
+        <SocialIcons theme={click ? 'dark' :'light'} />
 
-        <Center>
-            <BugBounty width={200} height={200} fill='currentColor' />
+        <Center click={click}>
+            <BugBounty onClick={()=> handleClick()} width={click ? 350 : 200} height={click ? 350 : 200} fill='currentColor' />
             <span> Click Here</span>
         </Center>
         
@@ -125,14 +140,14 @@ export const Main = () => {
                 </h2>
         </Blog>
 
-        <PAGES to="/pages">
+        <PAGES to="/pages" click={click}>
                 <h2>
                     Pages
                 </h2>
         </PAGES>
 
         <BottomBar>
-              <ABOUT to="/about">
+              <ABOUT to="/about" click={click}>
                 <h2>
                     About
                 </h2>
@@ -144,7 +159,7 @@ export const Main = () => {
         </PHOTOS>
         </BottomBar>
          </Container>
-
+        {click ?  <Intro /> : null}
     </MainContainer>
   )
 }

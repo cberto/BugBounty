@@ -26,8 +26,8 @@ z-index:3;
 cursor: pointer;
 
 &:hover{
-    background-color: rgba(79, 75, 134, 1);
-    box-shadow: 0 0 8px 6px rgba(0,255,0,0.2);
+    background-color: rgba(46, 255, 138, 1); 
+    box-shadow: 0 0 8px 6px rgba(46, 187, 138, 1); 
 }
 
 &>*:first-child{

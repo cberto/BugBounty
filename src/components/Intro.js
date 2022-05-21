@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
-import Me from '../assets/Images/hacker.png'
+import Me from '../assets/Images/hacker4.png'
 
 
 const Box = styled(motion.div)`
 
 position: absolute;
-left: 50%;
+left: 47%;
 top: 50%;
 transform: translate(-50%, -50%);
 
@@ -20,13 +20,13 @@ display: flex;
 background: linear-gradient(
     to right,
     ${props => props.theme.body} 50%,
-    ${props => props.theme.text} 50%) bottom,
+    ${props => props.theme.text} 60%) bottom,
     linear-gradient(
     to right,
     ${props => props.theme.body} 50%,
-    ${props => props.theme.text} 50%) top;
+    ${props => props.theme.text} 60%) top;
     background-repeat: no-repeat;
-background-size: 100% 2px;
+    background-size: 100% 2px;
     border-left: 2px solid ${props => props.theme.body};
     border-right: 2px solid ${props => props.theme.text};
 
