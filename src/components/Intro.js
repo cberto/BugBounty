@@ -66,7 +66,7 @@ justify-content: space-evenly;
 
 }
 h1{
-    color:white;
+    color:#8330F5;
     font-size: 110% 
 }
 

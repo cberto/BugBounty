@@ -7,6 +7,7 @@ import Intro from '../components/Intro'
 import { NavLink } from 'react-router-dom'
 import { BugBounty } from './AllSvgs'
 import  { keyframes } from 'styled-components'
+import {motion} from 'framer-motion'
 
 const MainContainer = styled.div`
 background: ${props => props.theme.body};
@@ -112,7 +113,7 @@ height: ${props => props.click ? '100%' : '0%'};
 z-index:1;
 transition: height 0.5s ease, width 1s ease 0.5s;
 `
-// #000;
+
 
 export const Main = () => {
     const [click, setClick] = useState(false);
@@ -131,31 +132,83 @@ const handleClick = () => setClick(!click);
             <span> Click Here</span>
         </Center>
         
-        <Contact target="_blank" to={{pathname:"mailto:asdasd@gmail.com"}}>
-                <h2>Contactame</h2>
+        <Contact target="_blank" to={{pathname:"mailto:bugbountyarg@gmail.com"}}>
+                <motion.h2
+                initial={{
+                    y:200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                 whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+                >Contacto
+                </motion.h2>
         </Contact>
         <Blog to="/blog">
-                <h2>
+                <motion.h2
+                initial={{
+                    y:-200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}>
                     Blog
-                </h2>
+                </motion.h2>
         </Blog>
 
         <PAGES to="/pages" click={click}>
-                <h2>
+                <motion.h2
+                 initial={{
+                    y:-200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                 whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}>
                     Pages
-                </h2>
+                </motion.h2>
         </PAGES>
 
         <BottomBar>
               <ABOUT to="/about" click={click}>
-                <h2>
+                <motion.h2
+                 initial={{
+                    y:200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                 whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}>
                     About
-                </h2>
+                </motion.h2>
         </ABOUT>
         <PHOTOS to="/photos">
-                <h2>
+                <motion.h2
+                initial={{
+                    y:200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                 whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}>
                     Photos
-                </h2>
+                </motion.h2>
         </PHOTOS>
         </BottomBar>
          </Container>
