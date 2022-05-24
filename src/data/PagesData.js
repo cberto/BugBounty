@@ -1,6 +1,6 @@
 // work data
 
-export const Work = [
+export const Data = [
     {
         id:1,
         name:"Hacker 0X01",
@@ -38,5 +38,6 @@ export const Work = [
         demo:"https://blog.intigriti.com/hackademy/",
         
     }
+    
   
 ] 

@@ -3,10 +3,11 @@ import { ThemeProvider } from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
-import {lightTheme} from './Themes';
+import {DarkTheme} from './Themes';
 import { Carousel } from 'react-carousel-minimal';
 import styled from 'styled-components'
-
+import Titlte from '../subComponents/Titlte';
+import bugbountyarg from "../assets/Images/BB_Arg.png"
 
 const CarouselPhoto = styled.div`
 position: absolute;
@@ -24,6 +25,29 @@ justify-content: center;
 align-items: center;
 transition: all 1s ease;
 
+`
+
+const Box = styled.div`
+background-color: ${props => props.theme.body};
+width: 100vw;
+height:100vh;
+position: relative;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+
+
+`
+
+
+const MainContainer = styled.div`
+background-image: url(${bugbountyarg});
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+width: 100vm;
+height: 100vh;
 `
 
 function Photos() {
@@ -51,11 +75,13 @@ function Photos() {
     fontWeight: 'bold',
   }
   return (
-
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={DarkTheme}>
+<MainContainer>
+      <Box>
       <PowerButton />
-      <LogoComponent theme='light'/>
-      <SocialIcons theme='light'/>
+      
+      <LogoComponent theme='dark'/>
+      <SocialIcons theme='dark'/>
     <CarouselPhoto
     
     >
@@ -85,6 +111,10 @@ function Photos() {
             }}
           />
 </CarouselPhoto>
+
+<Titlte text="FOTOS" top="80%" right="30%" />
+</Box>
+    </MainContainer>
     </ThemeProvider>
   )
 }
